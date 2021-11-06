@@ -30,11 +30,11 @@ void setup() {
 }
 
 void NextNum() {
-  NextNum = (whichNum + 1) % 5;           // Change the number after the % to the number of patterns you have
+  whichNum = (whichNum + 1) % 5;           // Change the number after the % to the number of patterns you have
 }
 
 void PrevNum() {
-  PrevNum = (whichNum + 1) % 5;           // Change the number after the % to the number of patterns you have
+  whichNum = (whichNum + 1) % 5;           // Change the number after the % to the number of patterns you have
 }
 
 void loop() {
