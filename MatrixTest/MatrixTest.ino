@@ -28,17 +28,13 @@ void setup() {
     colorIndex[i] = random8();
   }
 }
-
 void NextNum() {
-  whichNum = (whichNum + 1) % 4;           // Change the number after the % to the number of patterns you have
+  whichNum = (whichNum + 1) % 8;           // Change the number after the % to the number of patterns you have
 }
-
 void PrevNum() {
-  whichNum = (whichNum - 1) % 4;           // Change the number after the % to the number of patterns you have
+  whichNum = (whichNum - 1) % 8;           // Change the number after the % to the number of patterns you have
 }
-
 void loop() {
-
     switch (whichNum) {
     case 0:
       Num0();
@@ -52,6 +48,18 @@ void loop() {
     case 3:
       Num3();
       break;
+    case 4:
+      Num4();
+      break;
+    case 5:
+      Num5();
+      break;
+    case 6:
+      Num6();
+      break;
+//    case 7:
+//      Num7();
+//      break;
   }
   
 
