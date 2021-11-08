@@ -297,12 +297,11 @@ leds[34] = CRGB(255 , 0 , 0);
 }
 void BlinkShow() { 
   loop();{ 
-    // Turn the LED on, then pause
-    leds[0] = CRGB::Red;
+    fill_solid(leds, NUM_LEDS, CRGB::Red);
     FastLED.show();
     delay(500);
     // Now turn the LED off, then pause
-    leds[0] = CRGB::Black;
+    fill_solid(leds, NUM_LEDS, CRGB::Blue);
     FastLED.show();
     delay(500);
   }

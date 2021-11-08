@@ -28,8 +28,8 @@ void setup() {
   Serial.begin(9600);
   attachInterrupt(digitalPinToInterrupt(NextShow_PIN),checkTickShow,CHANGE);
   attachInterrupt(digitalPinToInterrupt(NumCountUp_PIN),checkTickNum,CHANGE);
-  NextShowBtn.attachClick(NextShow);
-  NumCountUpBtn.attachClick(NumberShow);
+  NextShowBtn.attachClick(IncrementNextShow);
+  NumCountUpBtn.attachClick(IncrementNumberShow);
 }
 
 void loop() {
@@ -38,25 +38,31 @@ void loop() {
   FastLED.show();
 }
 
-void NextShow() {
-  whichShow = (whichShow + 1);
-  if (whichShow > 3)whichShow = 0;
+void IncrementNextShow() {
+whichShow = (whichShow + 1) % 3;
+DisplayNextShow();
+}
+
+void DisplayNextShow() {
   switch (whichShow){
-    case 1:
+    case 0:
     BlinkShow();
     break;
-    case 2:
+    case 1:
     FlagShow();
     break;
-    case 3:
-    NumberShow();
+    case 2:
+    DisplayNumberShow();
     break;
   }
 }
 
-void NumberShow() {
-  whichNum = (whichNum + 1);
-  if (whichNum > 6)whichNum = 0;
+void IncrementNumberShow() {
+whichNum = (whichNum + 1) % 7;
+DisplayNumberShow();
+}
+
+void DisplayNumberShow() {
   switch (whichNum) {
     case 0:
       Num0();
